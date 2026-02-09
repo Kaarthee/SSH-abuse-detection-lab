@@ -143,6 +143,70 @@ ssh-abuse-detector/
 
 
 ---
+---
+
+## How to Run (Quick Start)
+
+### Prerequisites
+- Ubuntu Linux (tested on 22.04 LTS)
+- Python 3.10+
+- SSH server running on the target system
+- (Optional) Kali Linux for attack simulation
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Kaarthee/SSH-abuse-detection-lab.git
+cd SSH-abuse-detection-lab
+2. (Optional) Configure baseline
+
+Edit data/baseline.json to define:
+
+allowed login hours
+
+allowed IP prefixes per user
+
+Example:
+
+{
+  "ubuntu": {
+    "login_hours": [9,10,11,12,13,14,15,16,17],
+    "allowed_ip_prefixes": ["192.168.20."]
+  }
+}
+
+3. Run the detector
+sudo python3 src/detector.py
+
+
+The detector will:
+
+analyse recent SSH activity
+
+score suspicious behaviour
+
+print alerts to the terminal
+
+write alerts to alerts/ssh_detector.jsonl
+
+trigger automated response if thresholds are met
+
+4. (Optional) Simulate attacks
+
+From an attacker machine (e.g. Kali Linux):
+
+Brute force:
+
+ssh wronguser@<target-ip>
+
+
+Credential abuse:
+
+ssh ubuntu@<target-ip>
+
+
+SSH tunnel / long-lived session:
+
+ssh -N -L 8080:127.0.0.1:22 ubuntu@<target-ip>
 
 ## Skills Demonstrated
 
