@@ -224,3 +224,4 @@ ssh -N -L 8080:127.0.0.1:22 ubuntu@<target-ip>
 
 This project is intended for **educational and defensive security purposes only**.
 
+For detailed usage and testing scenarios, see [docs/USAGE.md](docs/USAGE.md).
