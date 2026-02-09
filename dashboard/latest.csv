@@ -1,2 +1,0 @@
-timestamp,source_ip,severity,score,events,mitre
-2026-02-08T23:10:11,192.168.20.18,MEDIUM,40,Anomaly: unusual login hour for ubuntu | Anomaly: new IP range for ubuntu | Active SSH session observed (possible long-lived/tunnel),"T1021.004,T1078,T1572"
